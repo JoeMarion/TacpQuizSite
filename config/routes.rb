@@ -11,8 +11,6 @@ Rails.application.routes.draw do
 
   get 'sessions/new'
 
-  root to: 'forums#index'
-
   get    'signup' => 'users#new'
   get    'login'  => 'sessions#new'
   post   'login'  => 'sessions#create'
@@ -22,7 +20,4 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
 
-  resources :forums, only: [:index] do
-    resources :topics
-  end
 end
