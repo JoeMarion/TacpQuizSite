@@ -1,14 +1,15 @@
-# Lost in Transit
+# TACP Quiz App
 
-TODO: Write a project description
+TACP Quiz App is a web application designed to assist Tactical Air Control Party members study. It includes questions for all three volumes of the Career Development Course (CDCs), the current Master Question File (MQF) and some local MQF questions.
+
 
 ## Installation
 
-TODO: Describe the installation process
+No installation needed! Head on over to [TACP Quiz App](https://www.tacpquizapp.com) and sign up!
 
 ## Usage
 
-TODO: Write usage instructions
+[Sign up](https://www.tacpquizapp.com/signup) and select which quizzes you want to be tested on.
 
 ## Contributing
 
@@ -16,16 +17,16 @@ TODO: Write usage instructions
 2. Create your feature branch: `git checkout -b my-new-feature`
 3. Commit your changes: `git commit -am 'Add some feature'`
 4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request
+5. Submit a pull request :D
 
 ## History
 
-TODO: Write history
+The TACP Quiz App started out as a premium iOS app that I created when I was learning how to develop. Since it's creation in 2013, a lot of changes have been made. This is now a free app for everyone to use and will have semi-frequent updates.
 
 ## Credits
 
-TODO: Write credits
+Creator: Joe Marion
 
 ## License
 
-TODO: Write license
+MIT License baby!
