@@ -1,3 +1,7 @@
 class Question < ActiveRecord::Base
-  has_and_belongs_to_many :quizzes
+  validates :question, :volume, presence: true
+
+  has_many :quizzes
+  has_many :scores, through: :quizzes
+  has_many :answers
 end

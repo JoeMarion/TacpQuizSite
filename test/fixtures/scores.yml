@@ -1,11 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  user_id: 
-  correct: 1
-  incorrect: 1
-
-two:
-  user_id: 
-  correct: 1
-  incorrect: 1
+joe:
+  user_id: 1
+  correct: 10
+  incorrect: 6
