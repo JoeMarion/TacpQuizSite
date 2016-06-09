@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  score_id: 
+  question_id: 
+
+two:
+  score_id: 
+  question_id: 
