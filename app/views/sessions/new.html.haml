@@ -1,0 +1,26 @@
+- provide(:title, "Log in")
+= content_for :stylesheet, stylesheet_link_tag("users")
+%h1 Log in
+
+.signup-container
+  .signup-form
+    = form_for(:session, url: login_path) do |f|
+
+      .email.field
+        = f.label :email
+        = f.email_field :email
+
+      .password.field
+        = f.label :password
+        = f.password_field :password
+
+      .remember-me.field
+        = f.label :remember_me, "Remember?"
+        = f.check_box :remember_me
+
+      .submit.field
+        = f.submit "Log in"
+  .new-user
+    = link_to "New user?", signup_path
+  .forgot-password
+    = link_to "Forgot password?", new_password_reset_path

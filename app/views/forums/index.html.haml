@@ -1,0 +1,17 @@
+- provide(:title, "Forums")
+= content_for :stylesheet, stylesheet_link_tag("forums")
+
+.forums-container
+
+  -# List out available forums.
+  - @forums.each do |forum|
+    - if !@categories.include? forum.section # Check if the category has a header
+      .forum-header
+        %h1= forum.section
+      .forum
+        = link_to forum.category, forum_topics_path(forum)
+      - @categories << forum.section
+    - else
+      .forum
+        = link_to forum.category, forum_topics_path(forum)
+

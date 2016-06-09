@@ -1,0 +1,26 @@
+= form_for(@user) do |f|
+  .error-messages
+    = render 'shared/error_messages'
+  .username.field
+    = f.label :username
+    = f.text_field :username
+  .email.field
+    = f.label :email
+    = f.email_field :email
+  .first-name.field
+    = f.label :first_name
+    = f.text_field :first_name
+  .last-name.field
+    = f.label :last_name
+    = f.text_field :last_name
+  .birthday.field
+    = f.label :birthday
+    = f.text_field :birthday
+  .password.field
+    = f.label :password
+    = f.password_field :password
+  .password-conf.field
+    = f.label :password_confirmation, "Confirm Password"
+    = f.password_field :password_confirmation
+  .submit.field
+    = f.submit submit_but

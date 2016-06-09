@@ -1,0 +1,7 @@
+- provide(:title, "Sign up")
+= content_for :stylesheet, stylesheet_link_tag("users")
+%h1 Sign up
+
+.signup-container
+  .signup-form
+    = render partial: 'user_form', locals: { submit_but: "Create Account" }

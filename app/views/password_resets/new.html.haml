@@ -1,0 +1,14 @@
+- provide(:title, "Forgot password")
+= content_for :stylesheet, stylesheet_link_tag("users")
+
+%h1 Forgot password
+
+.signup-container
+  .signup-form
+    = form_for(:password_reset, url: password_resets_path) do |f|
+
+      .email.field
+        = f.label :email
+        = f.email_field :email
+      .submit.field
+        = f.submit "Submit"

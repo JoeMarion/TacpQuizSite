@@ -1,0 +1,9 @@
+%h1 Lost in Transit
+
+%p= "Hi #{@user.first_name}"
+
+%p
+  Welcome to Lost in Transit! Click on the link below to activate your account:
+
+= link_to "Activate account", edit_account_activation_url(@user.activation_token,
+                                                          email: @user.email)

@@ -1,0 +1,7 @@
+- provide(:navigation, (link_to " > #{@forum.category}", forum_topics_path(@forum)))
+
+.title
+  = @topic.title
+
+.content
+  = @topic.content

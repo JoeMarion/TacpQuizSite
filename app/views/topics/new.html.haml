@@ -1,0 +1,12 @@
+.new-topic-container
+  = form_for @topic, url: forum_topics_path do |f|
+
+    = hidden_field_tag :forum_id, @forum.id
+
+    = f.label :title
+    = f.text_field :title
+
+    = f.label :content
+    = f.text_area :content
+
+    = f.submit "Create new topic"

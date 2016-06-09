@@ -1,0 +1,38 @@
+.header-title
+  = link_to "Lost in Transit", root_path, class: "main-title"
+
+.welcome.side-header
+  - if logged_in?
+    %h3.title= "Welcome, #{current_user.first_name}"
+  - else
+    %h3.title WELCOME GUEST
+
+.user-actions
+  - if logged_in?
+    = link_to "Profile", user_path(current_user), class: "links"
+    = link_to "Log out", logout_path, method: "delete", class: "links"
+  - else
+    = link_to "Create Account", signup_path, class: "links"
+    = link_to "Sign In", login_path, class: "links"
+
+.navigation.side-header
+  %h3.title NAVIGATION
+
+.nav-links
+  .home
+    %a{:href => "#", class: "links"} Home
+  .forums
+    %a{:href => "#", class: "links"} Forums
+  .store
+    %a{:href => "#", class: "links"} Blog
+
+.interaction.side-header
+  %h3.title INTERACTION
+
+.interact-links
+  .donate
+    %a{:href => "#", class: "links"} Donate
+  .add-fb
+    %a{:href => "#", class: "links"} Like on Facebook
+  .add-twtr
+    %a{:href => "#", class: "links"} Follow on Twitter

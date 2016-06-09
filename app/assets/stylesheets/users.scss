@@ -1,0 +1,35 @@
+@import "normalize-rails";
+@import "compass";
+@import "susy";
+@import "breakpoint";
+
+$susy: (
+  columns: 12,
+  gutters: 1/4,
+  global-box-sizing: border-box
+);
+
+@include border-box-sizing;
+
+.signup-container {
+  @include container(90%);
+  .signup-form {
+    @include span(12 last);
+    padding-top: 2em;
+  }
+  .field {
+    @include span(12 last);
+    padding-bottom: 1em;
+  }
+  label {
+    @include span(1.5);
+  }
+
+  input {
+    @include span(3);
+    height: 1.5em;
+  }
+  .submit {
+    border-radius: .2rem;
+  }
+}

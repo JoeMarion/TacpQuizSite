@@ -1,0 +1,7 @@
+- provide(:title, "Edit User")
+= content_for :stylesheet, stylesheet_link_tag("users")
+%h1 Update your profile
+
+.signup-container
+  .signup-form
+    = render partial: 'user_form', locals: { submit_but: "Save Changes"}

@@ -1,0 +1,129 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "normalize-rails";
+@import "compass";
+@import "susy";
+@import "breakpoint";
+
+$susy: (
+  columns: 12,
+  gutters: 1/4,
+  global-box-sizing: border-box
+);
+
+@include border-box-sizing;
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "proxima-nova";
+  font-size: 16px;
+  @media screen and (min-width: 900px) {
+    font-size: 18px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    font-size: 20px;
+  }
+}
+
+html, body {
+  height: 100%;
+}
+
+.app-container {
+  @include container;
+  @include clearfix;
+  min-height: 100%;
+  position: relative;
+}
+
+.rule {
+    @include span(12 last);
+    padding-top: 1em;
+    hr {
+      width: 80%;
+      margin: 0 auto;
+      display: block;
+      height: 1px;
+      border: 0;
+      border-top: 1px solid #ccc;
+      padding: 0;
+    }
+  }
+
+// Important announcements and flash
+//
+.important-announcements {
+  @include span(10 last);
+  height: 8%;
+}
+
+// Sidebar Styles
+
+.sidebar-container {
+  @include span(2);
+  position: fixed;
+  left: 0;
+  height: 100%;
+  background-color: #107dc5;
+  .header-title {
+    @include span(12 last);
+    height: 8%;
+    .main-title {
+      padding-left: 1em;
+      font-size: 1.5rem;
+    }
+  }
+
+  // Center Main sidebar headers
+  .title {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+  // Size sidebar headers with minor styles
+  .side-header {
+    text-align: center;
+    @include span(12 last);
+    background-color: blue;
+    height: 5%;
+  }
+
+  // Extend anchor tags to fill sidebar
+  .links {
+    @include span(12 last);
+    padding: 1em 1em;
+  }
+}
+
+// Main content styles
+
+.content-container {
+  @include span(10 last);
+  margin: 0;
+
+  // Navigation bar styles
+  .navigation {
+    @include span(12 last);
+    background-color: lightgray;
+    padding: 1%;
+  }
+}

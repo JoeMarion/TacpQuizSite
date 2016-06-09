@@ -1,0 +1,17 @@
+- provide(:title, 'Reset password')
+%h1 Reset password
+
+= form_for(@user, url: password_reset_path(params[:id])) do |f|
+  .error-messages
+    = render 'shared/error_messages'
+
+  = hidden_field_tag :email, @user.email
+
+  .password.field
+    = f.label :password
+    = f.password_field :password
+  .password-conf.field
+    = f.label :password_confirmation, "Confirm Password"
+    = f.password_field :password_confirmation
+  .submit.field
+    = f.submit "Update password"
