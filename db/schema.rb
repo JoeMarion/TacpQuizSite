@@ -11,20 +11,58 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160523050452) do
+ActiveRecord::Schema.define(version: 20160610160156) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "answers", force: :cascade do |t|
+    t.string   "answer"
+    t.boolean  "correct"
+    t.integer  "question_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
+
+  create_table "questions", force: :cascade do |t|
+    t.string   "question"
+    t.integer  "volume"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "quizzes", force: :cascade do |t|
+    t.integer  "score_id"
+    t.integer  "question_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "quizzes", ["question_id"], name: "index_quizzes_on_question_id", using: :btree
+  add_index "quizzes", ["score_id"], name: "index_quizzes_on_score_id", using: :btree
+
+  create_table "scores", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "correct",    default: 0
+    t.integer  "incorrect",  default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "selected"
+  end
+
+  add_index "scores", ["user_id"], name: "index_scores_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.boolean  "admin",             default: false
-    t.boolean  "moderator",         default: false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "username"
     t.string   "email"
     t.string   "password_digest"
     t.string   "birthday"
+    t.string   "asos"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
     t.string   "remember_digest"
@@ -37,4 +75,8 @@ ActiveRecord::Schema.define(version: 20160523050452) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
+  add_foreign_key "answers", "questions"
+  add_foreign_key "quizzes", "questions"
+  add_foreign_key "quizzes", "scores"
+  add_foreign_key "scores", "users"
 end

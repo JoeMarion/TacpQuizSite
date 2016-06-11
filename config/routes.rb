@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   get 'sessions/new'
 
-  root to: 'sessions#new'
+  root to: 'static_pages#home'
 
   get    'signup' => 'users#new'
   get    'login'  => 'sessions#new'
@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
 
   resources :users
+  resources :scores
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
 
