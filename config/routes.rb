@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'quizzes/index'
+
+  get 'quizzes/create'
+
   get 'password_resets/new'
 
   get 'password_resets/edit'
@@ -19,7 +23,9 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
 
   resources :users
-  resources :scores
+  resources :scores do
+    resources :quizzes
+  end
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
 
