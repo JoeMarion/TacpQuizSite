@@ -5,7 +5,7 @@ TACP Quiz App is a web application designed to assist Tactical Air Control Party
 
 ## Installation
 
-No installation needed! Head on over to [TACP Quiz App](https://www.tacpquizapp.com) and sign up!
+No installation needed. Head on over to [TACP Quiz App](https://www.tacpquizapp.com) and sign up!
 
 ## Usage
 
