@@ -10,7 +10,7 @@ class ScoresController < ApplicationController
     @score = @user.scores.new(score_params)
     if @score.save
       Score.build_quiz(@score, params[:score][:selected])
-      redirect_to root_url
+      redirect_to score_path @score
     else
       flash[:alert] = "You suck"
       render 'new'

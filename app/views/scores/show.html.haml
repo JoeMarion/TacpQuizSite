@@ -1,0 +1,10 @@
+%p= @questions.first.question
+
+.rule
+  %hr/
+
+.answers
+  - @answers.each do |answer|
+    .answer-but{class: "#{'correct' ? answer.correct? : 'incorrect'}"}
+      = answer.answer
+    }
