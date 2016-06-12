@@ -1,0 +1,9 @@
+%p= @question.question
+
+.rule
+  %hr/
+
+.answers
+  - @answers.each do |answer|
+    .answer-but{class: "#{ answer.correct? ? 'correct' : 'incorrect'}"}
+      = link_to answer.answer #, method: delete
