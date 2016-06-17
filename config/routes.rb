@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'quizzes/index'
-
-  get 'quizzes/create'
 
   get 'password_resets/new'
 
@@ -28,5 +25,7 @@ Rails.application.routes.draw do
   end
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
+
+  get 'current_quiz' => 'quizzes#show'
 
 end

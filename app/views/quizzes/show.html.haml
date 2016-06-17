@@ -5,5 +5,7 @@
 
 .answers
   - @answers.each do |answer|
-    .answer-but{class: "#{ answer.correct? ? 'correct' : 'incorrect'}"}
-      = link_to answer.answer #, method: delete
+    .answer-but
+      = link_to answer.answer, score_quiz_path(@score, @quiz, correct: answer.correct?), data: { method: :put }
+.score
+  = "#{@score.correct} correct, #{@score.incorrect} incorrect, #{@percentage}%"
