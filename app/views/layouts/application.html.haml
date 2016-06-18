@@ -11,16 +11,12 @@
   = csrf_meta_tags
   %link{:rel => "stylesheet", :href => "https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"}/
 %body
-  .important-announcements
+  .app-container
+    .navbar-container
+      = render 'layouts/navbar'
 
-  .sidebar-container
-    = render 'layouts/sidebar'
-
-  .content-container
-    .navigation
-      = link_to "Home", root_path
-      = yield :navigation
-    .flash-messages
-      - flash.each do |message_type, message|
-        %div{class: "alert alert-#{message_type}"}= message
-    = yield
+    .content-container
+      .flash-messages
+        - flash.each do |message_type, message|
+          %div{class: "alert alert-#{message_type}"}= message
+      = yield
