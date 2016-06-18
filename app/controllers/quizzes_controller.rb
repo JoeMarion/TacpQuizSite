@@ -1,5 +1,6 @@
 class QuizzesController < ApplicationController
   before_action :set_current_user
+  before_action :logged_in_user
   require 'json'
 
   def show
