@@ -81,6 +81,47 @@ html, body {
   background-color: black;
   height: 3.5em;
   border-bottom: 2px solid white;
+  .logo {
+    padding-left: 1em;
+    font-size: 2.5rem;
+    color: white;
+    margin: 0;
+  }
+  .logo:hover {
+    cursor: hand;
+    cursor: pointer;
+  }
+}
+
+// Sidebar
+
+.sidebar-container {
+  @include span(3);
+  display: none;
+  position: fixed;
+  top: 3.5em;
+  left: 0;
+  height: 100%;
+  background-color: black;
+  .title {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+  .side-header {
+    text-align: center;
+    @include span(12 last);
+    background-color: blue;
+    height: 5%;
+  }
+
+  .links {
+    @include span(12 last);
+    padding: 1em;
+  }
 }
 
 // Main content styles
