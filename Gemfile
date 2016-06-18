@@ -38,8 +38,9 @@ group :test do
   gem "minitest-reporters"
   gem "mocha"
   gem "poltergeist"
-  gem "shoulda-context"
-  gem "shoulda-matchers", ">= 3.0.1"
+  # gem "shoulda-context"
+  gem 'shoulda', '~> 3.5'
+  gem "shoulda-matchers", "~> 2.0"
   gem "test_after_commit"
 end
 

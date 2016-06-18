@@ -1,0 +1,19 @@
+%h1 TACP Quiz
+
+.rule
+  %hr/
+
+%h3 Select the categories to be included in the quiz
+
+= form_for @score do |f|
+  %h4 CDCs
+
+  = f.check_box :selected, {multiple: true}, "1"
+  = f.label :volume_1
+  = f.check_box :selected, {multiple: true}, "2"
+  = f.label :volume_2
+  = f.check_box :selected, {multiple: true}, "3"
+  = f.label :volume_3
+
+  = f.submit "Start Quiz"
+
