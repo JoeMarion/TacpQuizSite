@@ -11,10 +11,8 @@ class ScoresController < ApplicationController
     @score = @user.scores.new(score_params)
     if @score.save
       questions = Score.build_quiz(@score, params[:score][:selected])
-      question = questions.shuffle.first
-      cookies[:question] = question.question
       flash[:success] = "Begin quiz, good luck!"
-      redirect_to score_quiz_path(@score, question)
+      redirect_to score_quiz_path(@score, @score.questions.first)
     else
       flash[:alert] = "You suck"
       render 'new'

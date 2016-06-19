@@ -1,6 +1,5 @@
 class QuizFacade
-  def initialize(user, quiz)
-    @quiz = quiz
+  def initialize(user)
     @user = user
     @score = user.scores.last
   end
@@ -9,7 +8,11 @@ class QuizFacade
     @score = @user.scores.last
   end
 
-  def questions(question = @score.questions.first)
+  def questions
+    @score.questions
+  end
+
+  def question(question = @score.questions.first)
     @question = question
   end
 
