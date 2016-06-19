@@ -1,5 +1,11 @@
-.header-title
-  = link_to "Lost in Transit", root_path, class: "main-title"
+.navigation.side-header
+  %h3.title NAVIGATION
+
+.nav-links
+  .home
+    = link_to "Home", root_path, class: "links"
+  .new-quiz
+    = link_to "New Quiz", new_score_path, class: "links"
 
 .welcome.side-header
   - if logged_in?
@@ -15,16 +21,6 @@
     = link_to "Create Account", signup_path, class: "links"
     = link_to "Sign In", login_path, class: "links"
 
-.navigation.side-header
-  %h3.title NAVIGATION
-
-.nav-links
-  .home
-    %a{:href => "#", class: "links"} Home
-  .forums
-    %a{:href => "#", class: "links"} Forums
-  .store
-    %a{:href => "#", class: "links"} Blog
 
 .interaction.side-header
   %h3.title INTERACTION
