@@ -1,0 +1,13 @@
+%p= @quiz.question.question
+
+.rule
+  %hr/
+
+.answers
+  - @quiz.answers.each do |answer|
+    .answer-but
+      = link_to answer.answer, score_quiz_path(@quiz.score, @quiz.question, correct: answer.correct?), data: { method: :put }
+.score
+  = "#{@quiz.score.correct} correct, #{@quiz.score.incorrect} incorrect, #{@quiz.percentages}%"
+.debugger
+  = debug(params)
