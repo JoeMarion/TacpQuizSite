@@ -4,23 +4,17 @@ class QuizzesController < ApplicationController
   require 'json'
 
   def show
-    @quiz = params[:id]
-    @score = @user.scores.last
-    questions = @score.questions
-    @question = questions.first
-    @answers = questions.first.answers.shuffle
-    percent_dec = @score.correct / (@score.correct + @score.incorrect.to_f)
-    @percentage = ("%.2f" % percent_dec).to_f * 100
+    @quiz = QuizFacade.new(@user, params[:id])
 
     if flash[:success]
     elsif !cookies[:question].nil?
       question = Question.where(question: cookies[:question])
-      @score.questions.destroy(question)
+      @quiz.score.questions.destroy(question)
       cookies.delete :question
-      @question = questions.second
+      @quiz.questions(@quiz.score.questions.second)
     else
-      question = @score.questions.first
-      @score.questions.destroy(question)
+      question = @quiz.score.questions.first
+      @quiz.score.questions.destroy(question)
     end
   end
 
