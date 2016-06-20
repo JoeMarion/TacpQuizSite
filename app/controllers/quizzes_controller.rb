@@ -7,6 +7,9 @@ class QuizzesController < ApplicationController
     @quiz = QuizFacade.new(@user)
   end
 
+  def create
+  end
+
   def update
     score = @user.scores.last
     if score.questions.exists?(params[:id])
