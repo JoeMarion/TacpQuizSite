@@ -7,22 +7,12 @@ class QuizzesController < ApplicationController
     @quiz = QuizFacade.new(@user)
   end
 
-  def create
-  end
-
   def update
     score = @user.scores.last
     if score.questions.exists?(params[:id])
       increment_score(score, params[:id], params[:correct])
     end
     redirect_to score_quiz_path(score, score.questions.first)
-  end
-
-  def create
-  end
-
-  def destroy
-
   end
 
   private

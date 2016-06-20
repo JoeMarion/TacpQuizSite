@@ -10,7 +10,11 @@ class Score < ActiveRecord::Base
 
   # Validates a volume has been selected
   def volume_selected
-    if !selected.include? '1' # This only allows volume 1 to be selected, needs support for 2 & 3
+    vol_selected = false
+    ['1','2','3'].each do |n|
+      vol_selected = true if selected.include? n
+    end
+    if !vol_selected
       errors.add(:selected, "a volume must be selected")
     end
   end
