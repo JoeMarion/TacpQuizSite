@@ -9,8 +9,11 @@ class ScoresController < ApplicationController
 
   def create
     @score = @user.scores.new(score_params)
-    build_quiz(@score, params[:score][:selected]) if @score.save
-    render 'new' unless @score.save
+    if @score.save
+      build_quiz(@score, params[:score][:selected])
+    else
+      redirect_to new_score_path
+    end
   end
 
   def show
@@ -19,7 +22,7 @@ class ScoresController < ApplicationController
   private
 
     def score_params
-      params.require(:score).permit(:id, :selected)
+      params.require(:score).permit(:selected => [])
     end
 
     def quiz_params
