@@ -1,6 +1,11 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 joe:
   user_id: 1
   correct: 10
   incorrect: 6
+  selected: ['2']
+
+archerquiz:
+  user_id: 2
+  correct: 5
+  incorrect: 3
+  selected: ['1']
