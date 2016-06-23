@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).on('page:change', function() {
+  $('.logo').on("click", function() {
+    $('.sidebar-container').fadeToggle()
+  })
+});
