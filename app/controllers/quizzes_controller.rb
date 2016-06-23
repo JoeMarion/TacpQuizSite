@@ -8,11 +8,13 @@ class QuizzesController < ApplicationController
   end
 
   def update
-    score = @user.scores.last
-    if score.questions.exists?(params[:id])
-      increment_score(score, params[:id], params[:correct])
+    score = Score.find(params[:score_id])
+    increment_score(score, params[:id], params[:correct]) if score.questions.exists?(params[:id])
+    if score.questions.count > 0
+      redirect_to score_quiz_path(score, score.questions.first)
+    else
+      redirect_to root_path
     end
-    redirect_to score_quiz_path(score, score.questions.first)
   end
 
   def create
